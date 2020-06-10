@@ -11,7 +11,7 @@ const jwt_headers = {
 }
 
 Router.post("/signin", function(req, res) {
-    try {
+    try{
         for(let user of users) {
             if(user.username === req.body.username && user.password === req.body.password) {
                 const token = jwt.sign({

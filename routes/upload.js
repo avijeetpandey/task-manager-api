@@ -1,5 +1,5 @@
 const router=require('express').Router()
-const {getUser}=require('../controllers/getUsers')
+const getUsers=require('../controllers/getUsers')
 const formidable=require('formidable')
 const fs=require('fs')
 
@@ -9,13 +9,13 @@ let uploadJob={}
 // uploading and handling the file
 router.post('/',(req,res)=> {
     try {
-        const user = getUser(req.headers.auth_token)
+        const user = getUsers(req.headers.auth_token)
         console.log(`${user} uploading file`)
 
         // status of upload
         let status = ""
 
-        let fileName;
+        let fileName
 
         const form = new formidable.IncomingForm({
             maxFileSize: Infinity,

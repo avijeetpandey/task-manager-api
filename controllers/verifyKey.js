@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 * verify  the key
 * */
 
-const verifyKey = (key) =>{
+module.exports= (key) =>{
    for(let user of users){
        if(user.API_KEY == key){
            return true;
@@ -14,4 +14,3 @@ const verifyKey = (key) =>{
    }
 }
 
-module.exports= verifyKey;

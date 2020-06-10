@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const getKey = (token)=>{
+module.exports = (token)=>{
     try{
         let data=jwt.verify(token,process.env.SECRET_KEY || "atlan secret key")
         return data.API_KEY;
@@ -9,4 +9,4 @@ const getKey = (token)=>{
     }
 }
 
-module.exports = getKey
+
