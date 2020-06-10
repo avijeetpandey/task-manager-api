@@ -4,7 +4,8 @@
   "description": "Task manager for long scheduled task on the server",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "keywords": [
     "REST-API",
@@ -21,6 +22,7 @@
     "express": "^4.17.1",
     "formidable": "^1.2.2",
     "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.4",
     "send": "^0.17.1"
   }
 }
