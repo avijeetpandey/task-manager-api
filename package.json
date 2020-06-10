@@ -1,0 +1,26 @@
+{
+  "name": "task-manager-api",
+  "version": "1.0.0",
+  "description": "Task manager for long scheduled task on the server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "REST-API",
+    "nodejs",
+    "express",
+    "api",
+    "rest",
+    "task-manager"
+  ],
+  "author": "Avijeet Pandey",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "formidable": "^1.2.2",
+    "jsonwebtoken": "^8.5.1",
+    "send": "^0.17.1"
+  }
+}
