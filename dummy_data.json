@@ -1,0 +1,25 @@
+[
+  {
+    "username" : "avijeet",
+    "password" : "avijeet@123",
+    "API_KEY"  : "e6aeb9e3-dc46-4c68-afaa-b73a3e0d8ace"
+  },
+  {
+    "username" : "rohan",
+    "password" : "rohan@123",
+    "API_KEY"  : "e6aeb9e3-dc46-4c68-afaa-b73a3e0d8ace"
+  },
+  {
+    "username" : "riya",
+    "password" : "riya@123",
+    "API_KEY"  : "af7c84cf-0a8a-43d1-acc6-813f4b683777"
+  },{
+    "username" : "aman",
+    "password" : "aman@123",
+    "API_KEY"  : "6bfbd862-9e55-4c16-bdac-6a27f3cffe4e"
+  },{
+    "username" : "ricky",
+    "password" : "ricky@123",
+    "API_KEY"  : "e8626774-a13c-4c10-ac10-92fdbca09b30"
+  }
+]
