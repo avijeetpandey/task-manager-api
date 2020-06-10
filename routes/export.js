@@ -2,9 +2,9 @@ const Router = require('express').Router();
 const Send = require('send');
 const fs = require('fs');
 
-const  { getKey } = require('../Utilities/getKey');
-const  { getUsers } = require('../Utilities/getUsers');
-const verifyKey = require('../Utilities/verifyKey');
+const  { getKey } = require('../controllers/getKey');
+const  { getUsers } = require('../controllers/getUsers');
+const verifyKey = require('../controllers/verifyKey');
 
 //A job queue that maintains running Export tasks
 let exportQueue = {};
