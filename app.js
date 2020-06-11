@@ -2,6 +2,12 @@ require('dotenv').config()
 const express=require('express')
 const app=express();
 const PORT=process.env.PORT || 3000
+const logger=require('morgan')
+const path=require('path')
+const fs=require('fs')
+
+//writting stream for logs
+const logStream=fs.createWriteStream(path.join(__dirname,'server.log'),{flags:'a'});
 
 
 /*
@@ -14,6 +20,8 @@ const authRoute=require('./routes/auth')
 /*
 * Middlewares
 * */
+app.use(logger('dev'));
+app.use(logger('combined', { stream: logStream }));
 app.use(express.json())
 
 app.use('/upload',uploadRoute);
