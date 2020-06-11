@@ -2,14 +2,14 @@ const Router = require('express').Router();
 const Send = require('send');
 const fs = require('fs');
 
-const  { getKey } = require('../controllers/getKey');
-const  { getUsers } = require('../controllers/getUsers');
+const  getKey= require('../controllers/getKey');
+const  getUsers = require('../controllers/getUsers');
 const verifyKey = require('../controllers/verifyKey');
 
 //A job queue that maintains running Export tasks
 let exportQueue = {};
 
-Router.post('/', function(req, res) {
+Router.post('/', (req, res)=> {
     try{
         //Extract api key from the JWT
         const auth_token = req.headers.auth_token;
@@ -25,7 +25,7 @@ Router.post('/', function(req, res) {
             const filename = req.body.filename;
             console.log(`${user} requested download for ${filename}`);
 
-            const filepath = './Uploads/' + filename;
+            const filepath = './uploads/' + filename;
             console.log(`serving ${filepath}`);
 
             //Check if requested file exists

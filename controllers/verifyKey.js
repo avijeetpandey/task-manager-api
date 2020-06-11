@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-
+const users=require('../dummy_data.json')
 /*
 * verify  the key
 * */

@@ -111,7 +111,7 @@ router.delete('/kill',(req,res)=>{
         const formData = new formidable.IncomingForm()
 
         formData.parse(req, (err, fields, files) => {
-            const user = getUser(req.headers.auth_token)
+            const user = getUsers(req.headers.auth_token)
 
             if (user in uploadJob) {
                 console.log(`Killing ${user}'s upload`)

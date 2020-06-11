@@ -10,7 +10,7 @@ const jwt_headers = {
     expiresIn : 123459876
 }
 
-Router.post("/signin", function(req, res) {
+Router.post("/signin", (req, res)=> {
     try{
         for(let user of users) {
             if(user.username === req.body.username && user.password === req.body.password) {
