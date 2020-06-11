@@ -2,6 +2,7 @@ const router=require('express').Router()
 const getUsers=require('../controllers/getUsers')
 const formidable=require('formidable')
 const fs=require('fs')
+const path=require('path');
 
 // Dictionary to store running jobs
 let uploadJob={}
@@ -16,7 +17,7 @@ router.post('/',(req,res)=> {
         let status = ""
 
         let fileName
-
+        let oldPath
         const form = new formidable.IncomingForm({
             maxFileSize: Infinity,
             keepExtensions: true
@@ -29,7 +30,7 @@ router.post('/',(req,res)=> {
             status = `uploading ${fileName}`
             console.log(status)
 
-            let path = './uploads/' + fileName
+            oldPath = file.path
 
             uploadJob[user] = form
         })
@@ -41,11 +42,29 @@ router.post('/',(req,res)=> {
             res.status(200).end(status)
 
             //Transfer file from Temp directory to Required directory, as file is completely uploaded
-            fs.rename(file.path, './uploads/' + fileName, (err) => {
-                if (err) {
-                    throw err
-                }
-                console.log(`${fileName} stored to Uploads`)
+            // fs.rename(file.path, './uploads/' + fileName, (err) => {
+            //     if (err) {
+            //         throw err
+            //     }
+            //     console.log(`${fileName} stored to Uploads`)
+            // })
+
+            fs.readFile(oldPath,(err,data)=>{
+                if(err) throw err
+                console.log('Buffering File on the server')
+
+                let newPath = './uploads/'+fileName
+
+                fs.writeFile(newPath,data,(err)=>{
+                    if(err) throw err;
+                    console.log('File Uploaded Succesfully');
+                })
+
+                fs.unlink(oldPath,(err)=>{
+                    if (err) throw err
+                    console.log('Moved to uploads')
+                })
+
             })
 
             delete uploadJob[user]
